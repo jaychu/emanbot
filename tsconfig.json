@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module":"CommonJS",
     "target":"es2018",
-    "outDir":"dist",
+    "outDir":"build",
     "lib":[
       "ESNext",
       "ESNext.Array",

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsc && node build/init.js && node build/bot.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
   "homepage": "https://github.com/jaychu/emanbot#readme",
   "dependencies": {
     "@types/node": "^14.14.22",
-    "discord-akairo": "github:1Computer1/discord-akairo",
-    "discord.js": "github:discordjs/discord.js"
+    "discord.js": "github:discordjs/discord.js",
+    "jsonfile": "^6.1.0"
   }
 }
