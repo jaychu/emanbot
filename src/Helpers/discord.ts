@@ -1,3 +1,4 @@
+import {User} from "discord.js";
 import {filename} from '../constants';
 const config = require("../../"+filename);
 
@@ -7,8 +8,7 @@ let users = populateArray(config.USERS);
 let terms = populateArray(config.PHRASES);
 
 
-export function isUser(username:string,discriminator:string):boolean{
-    
+export function isUser(username:string,discriminator:string):boolean{    
     let messageUser = (username+"#"+discriminator).toLowerCase().trim();
     let isUser = false;
     users.forEach(user=>{
@@ -27,4 +27,8 @@ export function isTermUsed(content:string):boolean{
         }
     })
     return isTerm;
+}
+
+export function isGasBot(author:User):boolean{
+    return author.id === config.GAS_BOT;
 }
