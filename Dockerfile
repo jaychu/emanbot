@@ -26,13 +26,6 @@ COPY <<EOF config.json
     "GAS_BOT":"${GAS_BOT}"
 }
 EOF
-COPY <<EOF config-test.json
-{
-    "USERS":"${USERS}",
-    "PHRASES":"${PHRASES}",
-    "GAS_BOT":"${GAS_BOT}"
-}
-EOF
 RUN chown node:node config.json
 # Use production node environment by default.
 ENV NODE_ENV production
