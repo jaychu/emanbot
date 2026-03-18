@@ -1,16 +1,20 @@
 import {isGasBot, isTermUsed, isUser} from "./Helpers/discord";
-import {Client} from "discord.js";
+import { Client, Events, GatewayIntentBits } from "discord.js";
 import {fetch_giphy} from './Helpers/bot';
 import {filename,emoji} from './constants';
 const config = require("../"+filename);
 
-const client = new Client();
+const client = new Client({ intents: [
+     GatewayIntentBits.Guilds,
+     GatewayIntentBits.GuildMessages,
+     GatewayIntentBits.MessageContent
+] });
 
-client.on('ready', () => {
+client.on(Events.ClientReady, readyClient => {
      console.log("EmanBot is now online!");
 });
 
-client.on('message',async msg => {
+client.on(Events.MessageCreate ,async msg => {
      if(isUser(msg.author.username,msg.author.discriminator)==true||
      isTermUsed(msg.content) == true){         
           msg.react(emoji);
