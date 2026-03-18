@@ -14,10 +14,30 @@ RUN npm install
 # Copy the rest of the source files into the image.
 COPY . .
 RUN npm run build
-# Run the application as a non-root user.
-USER node
+
+ARG USERS
+ARG PHRASES
+ARG GAS_BOT
+
+COPY <<EOF config.json
+{
+    "USERS":"${USERS}",
+    "PHRASES":"${PHRASES}",
+    "GAS_BOT":"${GAS_BOT}"
+}
+EOF
+COPY <<EOF config-test.json
+{
+    "USERS":"${USERS}",
+    "PHRASES":"${PHRASES}",
+    "GAS_BOT":"${GAS_BOT}"
+}
+EOF
+RUN chown node:node config.json
 # Use production node environment by default.
 ENV NODE_ENV production
+# Run the application as a non-root user.
+USER node
 
 # Run the application.
 CMD npm start

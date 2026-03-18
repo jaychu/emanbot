@@ -1,8 +1,8 @@
 import {isGasBot, isTermUsed, isUser} from "./Helpers/discord";
 import { Client, Events, GatewayIntentBits } from "discord.js";
 import {fetch_giphy} from './Helpers/bot';
-import {filename,emoji} from './constants';
-const config = require("../"+filename);
+import {emoji} from './constants';
+import {getDiscordToken} from './Helpers/secrets';
 
 const client = new Client({ intents: [
      GatewayIntentBits.Guilds,
@@ -34,5 +34,5 @@ client.on(Events.MessageCreate ,async msg => {
 });
 
 
-client.login(config.BOT_TOKEN);
+client.login(getDiscordToken());
 

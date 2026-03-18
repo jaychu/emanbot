@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && node build/init.js",
-    "start": "node build/bot.js"
+    "build": "tsc",
+    "start": "node build/init.js && node build/bot.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
     "@types/node": "^25.5.0",
     "axios": "^1.13.6",
     "discord.js": "^14.25.1",
+    "fs": "^0.0.1-security",
     "jsonfile": "^6.2.0",
     "random": "^5.4.1"
   },
