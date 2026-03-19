@@ -15,9 +15,9 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-ARG USERS
-ARG PHRASES
-ARG GAS_BOT
+ENV USERS
+ENV PHRASES
+ENV GAS_BOT
 
 COPY <<EOF config.json
 {
