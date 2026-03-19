@@ -16,10 +16,13 @@ services:
     secrets:
       - discord_token
       - giphy_token
+    volumes:
+      - .:/usr/src/app/data
+    working_dir: /usr/src/app
 
 secrets:
   discord_token:
-    file: ./secrets/discord_token.txt
+    file: ./data/discord_token.txt
   giphy_token:
-    file: ./secrets/giphy_token.txt
+    file: ./data/giphy_token.txt
 

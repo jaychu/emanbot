@@ -15,18 +15,14 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-ENV USERS="XXX"
-ENV PHRASES="healing"
-ENV GAS_BOT="XXX"
+RUN if [ ! -f data/discord_token.txt ]; then \
+      echo "XXX" > data/discord_token.txt; \
+    fi
+RUN if [ ! -f data/giphy_token.txt ]; then \
+      echo "XXX" > data/giphy_token.txt; \
+    fi
 
-COPY <<EOF config.json
-{
-    "USERS":"${USERS}",
-    "PHRASES":"${PHRASES}",
-    "GAS_BOT":"${GAS_BOT}"
-}
-EOF
-RUN chown node:node config.json
+RUN chown -R node:node data
 # Use production node environment by default.
 ENV NODE_ENV production
 # Run the application as a non-root user.

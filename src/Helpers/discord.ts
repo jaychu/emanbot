@@ -1,6 +1,6 @@
 import {User} from "discord.js";
-import {filename} from '../constants';
-const config = require("../../"+filename);
+import {configFile} from '../constants';
+const config = require("../../"+configFile);
 
 import {populateArray} from './bot';
 
