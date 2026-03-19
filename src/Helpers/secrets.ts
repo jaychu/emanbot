@@ -8,7 +8,6 @@ export function getDiscordToken():string{
   } catch (err) {
     console.error("Could not find discord_token secret file!");
     console.error(err);
-    process.exit(1);
   }
 }
 
