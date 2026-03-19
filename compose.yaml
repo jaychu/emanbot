@@ -17,12 +17,12 @@ services:
       - discord_token
       - giphy_token
     volumes:
-      - .:/usr/src/app/data
-    working_dir: /usr/src/app
+      - emanbot-config:/emanbot-config
+    working_dir: /emanbot
 
 secrets:
   discord_token:
-    file: ./data/discord_token.txt
+    file: ./emanbot-config/discord_token.txt
   giphy_token:
-    file: ./data/giphy_token.txt
+    file: ./emanbot-config/giphy_token.txt
 

@@ -1,4 +1,4 @@
-export const configFile: string = "data/config.json";
+export const configFile: string = (process.env.NODE_ENV === 'production') ?"/emanbot-config/config.json" :"data/config.json";
 export const defaultConfig = {
     USERS : "XXX",
     PHRASES:"healing",

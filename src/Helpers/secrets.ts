@@ -4,7 +4,8 @@ import fs from 'fs';
 export function getDiscordToken():string{    
   try {
     // Docker mounts secrets at this specific path
-    return fs.readFileSync('data/discord_token.txt', 'utf8').trim();
+    let discord_token_path = (process.env.NODE_ENV === 'production') ?'/emanbot-config/discord_token.txt' : 'data/discord_token.txt';
+    return fs.readFileSync(discord_token_path, 'utf8').trim();
   } catch (err) {
     console.error("Could not find discord_token file in data/!");
     console.error(err);
@@ -15,7 +16,8 @@ export function getDiscordToken():string{
 export function getGiphyToken():string{    
   try {
     // Docker mounts secrets at this specific path
-    return fs.readFileSync('data/giphy_token.txt', 'utf8').trim();
+        let giphy_token_path = (process.env.NODE_ENV === 'production') ?'/emanbot-config/giphy_token.txt' : 'data/giphy_token.txt';
+    return fs.readFileSync(giphy_token_path, 'utf8').trim();
   } catch (err) {
     console.error("Could not find giphy_token file in data/!");
     console.error(err);

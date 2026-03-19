@@ -1,6 +1,8 @@
 import {User} from "discord.js";
 import {configFile} from '../constants';
-const config = require("../../"+configFile);
+
+
+const config = (process.env.NODE_ENV === 'production') ? require(configFile) : require("../../"+configFile);
 
 import {populateArray} from './bot';
 
