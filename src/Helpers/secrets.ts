@@ -18,7 +18,7 @@ export function getGiphyToken():string{
     // Docker mounts secrets at this specific path
     return fs.readFileSync('secrets/giphy_token.txt', 'utf8').trim();
   } catch (err) {
-    console.error("Could not find discord_token secret file!");
-    process.exit(1);
+    console.error("Could not find giphy_token secret file!");
+    console.error(err);
   }
 }
