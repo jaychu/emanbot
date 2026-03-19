@@ -1,4 +1,4 @@
-export const filename: string = "config.json";
+export const configFile: string = "data/config.json";
 export const defaultConfig = {
     USERS : "XXX",
     PHRASES:"healing",
