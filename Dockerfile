@@ -15,11 +15,15 @@ RUN npm install
 COPY . .
 RUN npm run build
 
+RUN if [ ! -d data ]; then \
+      mkdir -p data && echo "Created missing data folder"; \
+    fi
+
 RUN if [ ! -f data/discord_token.txt ]; then \
-      echo "XXX" > data/discord_token.txt; \
+      echo "XXX" > data/discord_token.txt && echo "Created missing discord token text file, need to update with correct token"; \
     fi
 RUN if [ ! -f data/giphy_token.txt ]; then \
-      echo "XXX" > data/giphy_token.txt; \
+      echo "XXX" > data/giphy_token.txt  && echo "Created missing giphy token text file, need to update with correct token"; \
     fi
 
 RUN chown -R node:node data
