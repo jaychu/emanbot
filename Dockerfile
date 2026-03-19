@@ -15,9 +15,9 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-ENV USERS
-ENV PHRASES
-ENV GAS_BOT
+ENV USERS="XXX"
+ENV PHRASES="healing"
+ENV GAS_BOT="XXX"
 
 COPY <<EOF config.json
 {
