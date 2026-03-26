@@ -5,3 +5,5 @@ export const defaultConfig = {
     GAS_BOT:"XXX"
 }
 export const emoji: string = "798588827093827594";
+export const pizzaString: string = "pizza";
+export const self: string = "emanbot";
