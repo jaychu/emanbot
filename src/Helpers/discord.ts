@@ -1,5 +1,5 @@
 import {User} from "discord.js";
-import {configFile} from '../constants';
+import {configFile, pizzaString, self} from '../constants';
 
 
 const config = (process.env.NODE_ENV === 'production') ? require(configFile) : require("../../"+configFile);
@@ -21,6 +21,10 @@ export function isUser(username:string,discriminator:string):boolean{
     return isUser;
 }
 
+export function isSelf(username:string):boolean{  
+    return self === username.toLowerCase().trim();
+}
+
 export function isTermUsed(content:string):boolean{
     let isTerm = false;
     terms.forEach(term=>{
@@ -29,6 +33,10 @@ export function isTermUsed(content:string):boolean{
         }
     })
     return isTerm;
+}
+
+export function isPizzaUsed(content:string):boolean{
+    return content.toLowerCase().includes(pizzaString);
 }
 
 export function isGasBot(author:User):boolean{

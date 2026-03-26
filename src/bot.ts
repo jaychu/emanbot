@@ -1,4 +1,4 @@
-import {isGasBot, isTermUsed, isUser} from "./Helpers/discord";
+import {isGasBot, isTermUsed, isPizzaUsed, isUser, isSelf} from "./Helpers/discord";
 import { Client, Events, GatewayIntentBits } from "discord.js";
 import {fetch_giphy} from './Helpers/bot';
 import {emoji} from './constants';
@@ -18,6 +18,11 @@ client.on(Events.MessageCreate ,async msg => {
      if(isUser(msg.author.username,msg.author.discriminator)==true||
      isTermUsed(msg.content) == true){         
           msg.react(emoji);
+     }
+
+     if(isPizzaUsed(msg.content) && !isSelf(msg.author.username)){
+          let gif =  await fetch_giphy("pizza delivery");
+          msg.reply("DID SOMEONE ORDER A PIZZA?\n"+gif);
      }
 
      if(isGasBot(msg.author)){
